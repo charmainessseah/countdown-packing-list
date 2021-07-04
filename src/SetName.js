@@ -10,6 +10,7 @@ function SetName({name, setName}) {
         <div className="Name">
             <h1>Name Your Trip:</h1>
             <input className="setName" value={name} type="text" placeholder="Enter Name of Trip" onChange={handleChange}></input>
+            <h4>Press esc to exit</h4>
         </div>
     )
 }

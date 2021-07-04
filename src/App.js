@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useEffect, useState} from 'react';
-import Home from './Home.js';
+import Header from './Header.js';
 import SetName from './SetName';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
@@ -15,6 +15,7 @@ class App extends React.Component {
     this.state = {
       tripName : "My Trip",
       tripDate : null,
+      showSelectDate : false,
     }
   }
 
@@ -31,28 +32,32 @@ class App extends React.Component {
 
     if (endDate != null) {
       this.setState({tripDate : parseInt(endDate)});
-
     }
+  }
 
-    console.log("end date" + endDate);
-    console.log("comp did mount")
+  selectDate = () => {
+    let currState = this.state.showSelectDate;
+    this.setState({showSelectDate : !currState});
   }
 
   render() {
     return(
       <div className="App">
-        <h4 className="setDate">set trip date: </h4>
+        {/* <h4 className="setDate">set trip date: </h4>
         <DatePicker className="setDate" selected={this.state.tripDate} onChange={this.handleChange} showTimeSelect
-         dateFormat="dd/MM/yyyy" minDate={new Date()}></DatePicker>
-     
+         dateFormat="dd/MM/yyyy" minDate={new Date()}></DatePicker> */}
+        <button onClick={this.selectDate}><h4 className="set-date-button">set trip date</h4></button>
+        {this.state.showSelectDate ? <DatePicker className="set-date-button" selected={this.state.tripDate} onChange={this.handleChange} showTimeSelect
+         dateFormat="dd/MM/yyyy" minDate={new Date()}></DatePicker> : ""}
       
-        <br></br>
-        <Popup className="popup" trigger={<button>set trip name</button>} modal>
+        
+        <Popup className="popup" trigger={<button className="set-name-button">set trip name</button>} modal>
           <SetName name={this.state.tripName} setName={this.setTripName}/>
         </Popup>
 
-        <Home name={this.state.tripName}/>
+        <Header name={this.state.tripName}/>
         <Countdown tripDate={this.state.tripDate}/>
+        <PackingList />
       </div>
     )
   }

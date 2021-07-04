@@ -19,12 +19,10 @@ function Countdown({tripDate}) {
             const timeNow = date.getTime();
             const timeDifference = localStorage.getItem('endDate') - timeNow;
             
-            console.log("trip date 2: " + tripDate); // 2
             const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
             const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24) / (1000 * 60 * 60)));
             const minutes = Math.floor((timeDifference % (1000 * 60 * 60) / (1000 * 60)));
             const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-            console.log(timeDifference);
             
             if (timeDifference < 0 || tripDate == null) {
                 setDays(0);
