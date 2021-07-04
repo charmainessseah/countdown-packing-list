@@ -46,7 +46,7 @@ class App extends React.Component {
         {/* <h4 className="setDate">set trip date: </h4>
         <DatePicker className="setDate" selected={this.state.tripDate} onChange={this.handleChange} showTimeSelect
          dateFormat="dd/MM/yyyy" minDate={new Date()}></DatePicker> */}
-        <button onClick={this.selectDate}><h4 className="set-date-button">set trip date</h4></button>
+        <button onClick={this.selectDate} className="date-button">set trip date</button>
         {this.state.showSelectDate ? <DatePicker className="set-date-button" selected={this.state.tripDate} onChange={this.handleChange} showTimeSelect
          dateFormat="dd/MM/yyyy" minDate={new Date()}></DatePicker> : ""}
       

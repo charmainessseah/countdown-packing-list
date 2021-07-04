@@ -20,12 +20,16 @@ function PackingList() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        let copy = [...list];
-        let idNum = Number(new Date().getTime())
-        copy.push({thing : item, id : idNum, packed : false});
-        setList(copy);
-        setItem("");
-        localStorage.setItem("packingList", JSON.stringify(copy));
+        if (item !== "") {
+            let copy = [...list];
+            let idNum = Number(new Date().getTime())
+            copy.push({thing : item, id : idNum, packed : false});
+            setList(copy);
+            setItem("");
+            localStorage.setItem("packingList", JSON.stringify(copy));
+        } else {
+            alert("please enter a valid item");
+        }
     }
 
     // const handleClick = (e) => {
@@ -72,7 +76,7 @@ function PackingList() {
             {/* {list.map(item => <h2  className="item">{item["thing"]}<button id={(item.id)} onClick={handleClick}>remove item</button></h2>)} */}
 
             <div className="item-container">
-                {list.map(item => <h2  className="item">{item["thing"]}<DeleteIcon id={(item.id)} onClick={handleClick}>remove item</DeleteIcon></h2>)}
+                {list.map(item => <h2  className="item">{item["thing"]}<DeleteIcon className="delete-icon" id={(item.id)} onClick={handleClick}>remove item</DeleteIcon></h2>)}
             </div>
             
 
