@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 function SetName({name, setName}) {
 
     const handleChange = (e) => {
         setName(e.currentTarget.value)
+        localStorage.setItem("name", e.currentTarget.value);
     }
 
     return(

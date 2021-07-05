@@ -33,6 +33,12 @@ class App extends React.Component {
     if (endDate != null) {
       this.setState({tripDate : parseInt(endDate)});
     }
+
+    const name = localStorage.getItem("name");
+
+    if (name != null) {
+      this.setState({tripName : name});
+    }
   }
 
   selectDate = () => {
