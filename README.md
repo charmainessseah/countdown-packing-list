@@ -4,6 +4,8 @@ I travel often and I always tend to forget some essential items due to my last m
 
 ![image](https://user-images.githubusercontent.com/80232795/124507320-2ecc3d00-dd93-11eb-9b5f-8d7bd2707d33.png)
 
+Check it out [here](https://charmainessseah.github.io/countdown-packing-list/)!
+
 ## Technologies used
 - React
 - API
